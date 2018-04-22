@@ -38,5 +38,5 @@ export class ItemService {
         catchError(this.handleError('getHeroes', []))
       );
   }
-
+ 
 }  

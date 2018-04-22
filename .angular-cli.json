@@ -31,7 +31,7 @@
   ], 
   "e2e": {
     "protractor": {
-      "config": "./protractor.conf.js"
+      "config": "./protractor.conf.js" 
     }
   },
   "lint": [

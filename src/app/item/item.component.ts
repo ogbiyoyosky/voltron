@@ -6,7 +6,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./item.component.sass']
 })
 export class ItemComponent implements OnInit {
-
+ 
   @Input() item: any;
   @Output() onAddItemToCart = new EventEmitter<object>();
 

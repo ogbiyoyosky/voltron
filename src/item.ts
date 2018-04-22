@@ -5,4 +5,4 @@ export interface Item {
     desc: string;
     price: Number;
     inStock: Number;
-  } 
+  }  

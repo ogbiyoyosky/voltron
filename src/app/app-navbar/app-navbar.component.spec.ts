@@ -9,7 +9,7 @@ describe('AppNavbarComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AppNavbarComponent ]
-    })
+    }) 
     .compileComponents(); 
   }));
 

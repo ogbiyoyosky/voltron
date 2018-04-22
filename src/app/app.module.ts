@@ -14,7 +14,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 @NgModule({
   declarations: [
     AppComponent,
-    AppNavbarComponent,
+    AppNavbarComponent, 
     ItemsFeedComponent,
     ItemComponent
   ],

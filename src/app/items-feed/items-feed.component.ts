@@ -33,4 +33,4 @@ export class ItemsFeedComponent implements OnInit {
     console.log(this.cartItems)
   }
  
-}
+} 

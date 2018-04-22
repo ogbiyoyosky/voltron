@@ -12,7 +12,7 @@ describe('ItemsFeedComponent', () => {
     })
     .compileComponents();
   }));
-
+ 
   beforeEach(() => { 
     fixture = TestBed.createComponent(ItemsFeedComponent);
     component = fixture.componentInstance;
