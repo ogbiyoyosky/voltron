@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-body">
+      <div class="media">
+          <div class="media-body">
+
+              <section class="row">
+                  <div class="col-xs-4 col-sm-4 col-md-4">
+                      <img class="mr-3 mb-3 img-fluid rounded img-responsive " [src]="item.photo" alt="Generic placeholder image">
+                  </div> 
+    
+                  <div class="col-xs-7 col-sm-7 col-md-7">
+                      <h5 class="mt-0 clearfix">
+                        {{ item.title }}
+                        
+                        <button class="float-right btn btn-light text-info" (click)="addItemToCart(item)">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                      </h5>
+
+                      <small class="text-success">{{ item.price }}</small>
+                  </div>
+    
+              </section>
+ 
+          </div>
+        </div>
+  </div>
+</div>
