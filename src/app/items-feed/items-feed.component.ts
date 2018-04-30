@@ -29,7 +29,7 @@ export class ItemsFeedComponent implements OnInit {
   }
 
   onAddItemToCart (item) {
-    this.cartItems.push(item)
+    !this.cartItems.includes(item) && this.cartItems.push(item)
     console.log(this.cartItems)
   }
  
