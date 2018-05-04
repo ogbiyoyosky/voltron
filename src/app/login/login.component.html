@@ -1,19 +1,34 @@
 <div class="login__container">
   <div class="container">
-    <form class="form-signin"  (ngSubmit)="login()" #loginForm="ngForm">
-      <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" [(ngModel)]="loginData.email" [ngModelOptions]="{standalone: true}" required autofocus>
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" [(ngModel)]="loginData.password" [ngModelOptions]="{standalone: true}" placeholder="Password" required>
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    </form>
+    <div [hidden]="submitted">
+        <form class="form-signin"  (ngSubmit)="login()" #loginForm="ngForm">
+            <div *ngIf="message !==''" class="alert alert-danger alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert"aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                {{message}}
+              </div>
+            <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" [(ngModel)]="loginData.email" [ngModelOptions]="{standalone: true}" autofocus  #email="ngModel" required minlength="6" #spy>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+              <div *ngIf="email.errors.required">
+                Email is required.
+              </div>
+              <div *ngIf="email.errors.minlength">
+                email must be at least 6 characters long.
+              </div>
+            </div>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" [(ngModel)]="loginData.password" [ngModelOptions]="{standalone: true}" placeholder="Password" required>
+            <div class="checkbox mb-3">
+              <label>
+                <input type="checkbox" value="remember-me"> Remember me
+              </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" [disabled]="!loginForm.form.valid" type="submit">Sign in</button>
+          </form>
+    </div>
+    
   </div>
 </div>
 

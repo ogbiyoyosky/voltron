@@ -27,8 +27,12 @@ export class SignupComponent implements OnInit {
   signup () {
     this.AuthService.signup(this.signupData)
         .subscribe(res => {
-          this.data = res
-          this.message = 'Successfully created an Account'
+          this.data = res;
+          this.message = this.data.data['message'];
+          this.signupData.username = '';
+          this.signupData.password = '';
+          this.signupData.name = '';
+          this.signupData.email = '';
         }, err => {
           this.message = err.error.msg;
         });

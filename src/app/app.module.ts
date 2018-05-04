@@ -11,10 +11,13 @@ import { ItemsFeedComponent } from './items-feed/items-feed.component';
 import { ItemComponent } from './item/item.component';
 import { ItemService } from './item.service';
 import { AuthService } from './auth.service';
+import { CacheService } from './cache.service';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { ItemDetailComponent } from './item-detail/item-detail.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
  
 @NgModule({
@@ -24,7 +27,9 @@ import { AppRoutingModule } from './/app-routing.module';
     ItemsFeedComponent,
     ItemComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ItemDetailComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,7 @@ import { AppRoutingModule } from './/app-routing.module';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [ItemService, AuthService],
+  providers: [ItemService, AuthService, CacheService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
