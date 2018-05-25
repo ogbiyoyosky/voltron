@@ -12,12 +12,15 @@ import { ItemComponent } from './item/item.component';
 import { ItemService } from './item.service';
 import { AuthService } from './auth.service';
 import { CacheService } from './cache.service';
+import { CartService } from './cart.service';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { OrderComponent } from './order/order.component';
+import { OrderItemComponent } from './order-item/order-item.component';
 
  
 @NgModule({
@@ -29,7 +32,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     LoginComponent,
     SignupComponent,
     ItemDetailComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    OrderComponent,
+    OrderItemComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppRoutingModule,
     FormsModule
   ],
-  providers: [ItemService, AuthService, CacheService],
+  providers: [ItemService, AuthService, CacheService, CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

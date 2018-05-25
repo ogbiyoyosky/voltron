@@ -19,5 +19,8 @@ export class ItemComponent implements OnInit {
   addItemToCart (item) {
     return this.onAddItemToCart.emit(item);
   }
+  
 
+
+  
 }

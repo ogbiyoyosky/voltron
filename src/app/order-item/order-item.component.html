@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-body" *ngIf="cartItem">
+        <div class="media">
+            <div class="media-body">
+  
+                <section class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-4">
+                        <a><img class="mr-3 mb-3 img-fluid rounded img-responsive " [src]="cartItem.photo" alt="Generic placeholder image"></a>     
+                    </div> 
+      
+                    <div class="col-xs-7 col-sm-7 col-md-7">
+                        <h5 class="mt-0 clearfix">
+                          {{ cartItem.title }}
+                          <button class="float-right btn btn-danger text-info" (click)="removeItemFromCart(cartItem)">
+                              <i class="fa fa-minus"></i>                            
+                          </button>
+                          <button class="float-right btn btn-success text-info">
+                              <i class="fa fa-plus "></i>                            
+                          </button>
+                        </h5> 
+  
+                        <small class="text-success">{{ cartItem.price }}</small>
+                    </div>
+      
+                </section>
+   
+            </div>
+          </div>
+    </div>
+  </div>

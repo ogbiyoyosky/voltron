@@ -38,5 +38,14 @@ export class ItemService {
         catchError(this.handleError('getHeroes', []))
       );
   }
+
+  getItem (id: string): Observable<{}|Item> {
+    const url = `${this.itemsEndpoint}/${id}`;
+    return this.http.get<Item>(url)
+    .pipe(
+      tap(item => console.log(`item fetched with id of ${id}`)),
+      catchError(this.handleError<Item>(`getItem id=${id}`))
+    );
+  }
  
 }  

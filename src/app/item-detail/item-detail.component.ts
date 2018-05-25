@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { switchMap } from 'rxjs/operators';
 import { ItemService } from '../item.service';
+import { Item } from '../../item';
 
 
 @Component({
@@ -10,14 +12,26 @@ import { ItemService } from '../item.service';
   styleUrls: ['./item-detail.component.sass']
 })
 export class ItemDetailComponent implements OnInit {
-
+  item: Item;
+  
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
-    private service: ItemService
+    private location: Location,
+    private itemService: ItemService
   ) {}
 
   ngOnInit() {
+    this.getItem()
+  }
+
+  getItem(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+  
+    this.itemService.getItem(id)
+      .subscribe(item => {
+        this.item = item['result'];
+      })
+      
   }
 
 }

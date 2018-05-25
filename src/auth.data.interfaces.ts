@@ -3,10 +3,3 @@ export interface AuthLogin{
   password: string;
    
 }  
-
-export interface AuthSignup{
-  email: string;
-  password: string;
-  name: string;
-  username: string;  
-}  

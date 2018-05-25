@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../item.service';
+import { CartService } from '../cart.service';
 import {Item} from '../../item';
 
 
@@ -10,12 +11,15 @@ import {Item} from '../../item';
 })
 export class ItemsFeedComponent implements OnInit {
  items: object;
- cartItems: Item[]
+ cartItems:Item[]
 
-  constructor(private itemService: ItemService) {
-    this.cartItems = [];
+
+  constructor(
+    private itemService: ItemService,
+    private cartService: CartService
+  ) {
+    this.cartItems = []
   }
-
   ngOnInit() {
     this.getItems();
   }
@@ -29,8 +33,11 @@ export class ItemsFeedComponent implements OnInit {
   }
 
   onAddItemToCart (item) {
-    !this.cartItems.includes(item) && this.cartItems.push(item);
-    console.log(this.cartItems)
+    if (!this.cartService.cartItems.includes(item)) {
+      this.cartService.cartItems.push(item);
+      this.cartService.announceCartItem(item);
+      this.cartItems = this.cartService.cartItems;
+    }
   }
  
 } 
