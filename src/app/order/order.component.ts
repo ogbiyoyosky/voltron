@@ -11,6 +11,7 @@ import {Item} from '../../item';
 export class OrderComponent implements OnInit {
 
   cartItems:Item[]
+  
 
   constructor(private cartService: CartService) { 
     this.getOrderItems();
@@ -20,11 +21,19 @@ export class OrderComponent implements OnInit {
     this.cartItems =  this.cartService.getCartItem()
   }
 
-  onRemoveItemFromCart(cartItem: Item) {
-    this.cartService.announceCartItemRemoval(cartItem);
+  onDecrementItemFromCart(cartItem: Item) {
+    this.cartService.announceCartItemDecrement(cartItem);
     this.getOrderItems()
   }
 
+  onIncrementItemQuantity(cartItem: Item) {
+    this.cartService.announceIncrementItemQuantity(cartItem);
+  }
+
+  onRemoveItemFromCart(cartItem: Item) {
+    this.cartService.announceCartItemRemoval(cartItem);
+    this.cartItems = this.cartService.cartItems
+  }
   
 
   ngOnInit() {

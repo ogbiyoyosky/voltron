@@ -1,30 +1,21 @@
-<div class="card">
-    <div class="card-body" *ngIf="cartItem">
-        <div class="media">
-            <div class="media-body">
-  
-                <section class="row">
-                    <div class="col-xs-4 col-sm-4 col-md-4">
-                        <a><img class="mr-3 mb-3 img-fluid rounded img-responsive " [src]="cartItem.photo" alt="Generic placeholder image"></a>     
-                    </div> 
-      
-                    <div class="col-xs-7 col-sm-7 col-md-7">
-                        <h5 class="mt-0 clearfix">
-                          {{ cartItem.title }}
-                          <button class="float-right btn btn-danger text-info" (click)="removeItemFromCart(cartItem)">
-                              <i class="fa fa-minus"></i>                            
-                          </button>
-                          <button class="float-right btn btn-success text-info">
-                              <i class="fa fa-plus "></i>                            
-                          </button>
-                        </h5> 
-  
-                        <small class="text-success">{{ cartItem.price }}</small>
-                    </div>
-      
-                </section>
-   
-            </div>
-          </div>
+<div class="empty-order">
+    <h2 text-center>Please fill me up </h2>
+    <p>check out the best treat <a routerLink="/items">here</a> </p>
+
+</div>
+<div class="order-item mb-2" *ngIf="cartItem">
+    <div class="item-photo">
+        <img src="{{cartItem.photo}}" alt="">
     </div>
-  </div>
+    
+    <div class="details">
+        <p class="detail-title">{{cartItem.title}}</p>
+        <p class="text-success">{{cartItem.price}}</p>        
+    </div>
+    <div class="controls">
+        <button (click)="incrementItemQuantity(cartItem)" class="btn add-button"><i class="fa text-success fa-plus"></i></button>
+        <span *ngIf="cartItem.qty > 1">{{cartItem.qty}}</span>
+        <button *ngIf="cartItem.qty > 1" (click)="decrementItemFromCart(cartItem)" class="btn reduce-button"><i class="fa fa-minus"></i></button>
+        <button *ngIf="cartItem.qty === 1" (click)="removeItemFromCart(cartItem)" class="btn reduce-button"><i class="fa fa-times"></i></button>
+    </div>
+</div>
