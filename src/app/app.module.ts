@@ -21,6 +21,7 @@ import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { OrderComponent } from './order/order.component';
 import { OrderItemComponent } from './order-item/order-item.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
 
  
 @NgModule({
@@ -34,7 +35,8 @@ import { OrderItemComponent } from './order-item/order-item.component';
     ItemDetailComponent,
     PageNotFoundComponent,
     OrderComponent,
-    OrderItemComponent
+    OrderItemComponent,
+    OrderDetailComponent
   ],
   imports: [
     BrowserModule,
