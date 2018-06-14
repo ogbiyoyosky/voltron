@@ -32,7 +32,7 @@ export class ItemService {
   }
 
   getItems (): Observable<{} | Item[]> {
-    return this.http.get<Item[]>(this.itemsEndpoint)
+    return this.http.get<Item[]>(`${this.itemsEndpoint}`)
       .pipe(
         tap(items => console.log(`${items['result'].length} items fetched`)),
         catchError(this.handleError('getHeroes', []))
@@ -44,8 +44,8 @@ export class ItemService {
     return this.http.get<Item>(url)
     .pipe(
       tap(item => console.log(`item fetched with id of ${id}`)),
-      catchError(this.handleError<Item>(`getItem id=${id}`))
-    );
+      catchError(this.handleError<Item>(`getItem id=${id}`)
+    ));
   }
  
 }  

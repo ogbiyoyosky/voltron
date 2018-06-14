@@ -8,14 +8,26 @@
             <p class="text-success">{{item.price}}</p>        
         </div>
         <div class="controls">
-            <button *ngIf="item.qty == 0" (click)="addItemToCart(item)" class="btn add-button-lg button-lg"><i class="fa text-success fa-plus"></i></button>
-            <button *ngIf="item.qty > 0" (click)="incrementItemQuantity(item)" class="btn add-button"><i class="fa text-success fa-plus"></i></button>
+            
+            <button *ngIf="item.qty == 0" 
+                (click)="addItemToCart(item)" 
+                class="btn add-button-lg button-lg">
+                <i class="fa text-success fa-plus"></i>
+            </button>
+            <button *ngIf="item.qty > 0" 
+                (click)="incrementItemQuantity(item)" 
+                class="btn add-button"><i class="fa text-success fa-plus"></i>
+            </button>
             <span  *ngIf="item.qty > 1">{{item.qty}}</span>
-            
-            
-            <button *ngIf="item.qty > 1" (click)="decrementItemFromCart(item)" class="btn reduce-button"><i class="fa fa-minus"></i></button>
-            <button *ngIf="item.qty == 1" (click)="removeItemFromCart(item)" class="btn reduce-button"><i class="fa fa-times"></i></button>
+            <button *ngIf="item.qty > 1" (click)="decrementItemFromCart(item)"
+                 class="btn reduce-button"><i class="fa fa-minus"></i>
+            </button>
+            <button *ngIf="item.qty == 1" (click)="removeItemFromCart(item)"
+                class="btn reduce-button"><i class="fa fa-times"></i>
+            </button>
         </div>
 
 </div>
+
+
 

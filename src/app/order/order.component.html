@@ -4,7 +4,13 @@
         <section class="col-md-5">
           <h2 class="mb-5 text-center">Order</h2> 
           <app-order-detail *ngIf="cartItems == 0"></app-order-detail>
-          <app-order-item [cartItem]="cartItem" *ngFor="let cartItem of cartItems" (onRemoveItemFromCart)="onRemoveItemFromCart($event)" (onIncrementItemQuantity)="onIncrementItemQuantity($event)" (onDecrementItemFromCart)="onDecrementItemFromCart($event)"  (onIncrementItemFromCart)="onIncrementItemFromCart($event)"></app-order-item>
+          <app-order-item [cartItem]="cartItem" 
+          *ngFor="let cartItem of cartItems" 
+          (onRemoveItemFromCart)="onRemoveItemFromCart($event)"
+           (onIncrementItemQuantity)="onIncrementItemQuantity($event)" 
+           (onDecrementItemFromCart)="onDecrementItemFromCart($event)">
+          </app-order-item>
+          <app-cart-detail *ngIf="cartItems.length" ></app-cart-detail>
         </section>
       </div>
     </section>

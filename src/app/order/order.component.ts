@@ -19,20 +19,24 @@ export class OrderComponent implements OnInit {
 
   getOrderItems() {
     this.cartItems =  this.cartService.getCartItem()
+
   }
 
   onDecrementItemFromCart(cartItem: Item) {
     this.cartService.announceCartItemDecrement(cartItem);
     this.getOrderItems()
+    
   }
 
   onIncrementItemQuantity(cartItem: Item) {
     this.cartService.announceIncrementItemQuantity(cartItem);
+    
   }
 
   onRemoveItemFromCart(cartItem: Item) {
     this.cartService.announceCartItemRemoval(cartItem);
     this.cartItems = this.cartService.cartItems
+    
   }
   
 

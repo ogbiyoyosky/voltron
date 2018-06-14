@@ -22,6 +22,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { OrderComponent } from './order/order.component';
 import { OrderItemComponent } from './order-item/order-item.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { CartDetailComponent } from './cart-detail/cart-detail.component';
+import { InfiniteScrollerDirective } from './infinite-scroller.directive';
+import { AlertComponent } from './alert/alert.component';
+import { AlertService } from './alert.service';
 
  
 @NgModule({
@@ -36,7 +40,10 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
     PageNotFoundComponent,
     OrderComponent,
     OrderItemComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    CartDetailComponent,
+    InfiniteScrollerDirective,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,7 @@ import { OrderDetailComponent } from './order-detail/order-detail.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [ItemService, AuthService, CacheService, CartService],
+  providers: [ItemService, AuthService, CacheService, CartService,AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
